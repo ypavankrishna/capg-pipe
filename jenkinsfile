@@ -1,0 +1,25 @@
+pipeline{
+	agent any
+		stages{
+			stage('One'){
+				steps{
+					echo 'Hi, this is viji from capgemini'
+					}
+				}
+			stage('Two'){
+				steps{
+					input('Do you wnat to proceed?')
+					}
+				}
+			stage('Three'){
+				when{
+					not{
+						branch "master"
+					}
+					}
+					steps{
+						echo 'Hello'
+						}
+					}
+				}
+	}
